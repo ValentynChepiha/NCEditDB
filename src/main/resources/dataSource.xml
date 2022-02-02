@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE datasource SYSTEM "dataSource.dtd">
+<datasource>
+    <source-name>dbnctest</source-name>
+    <connection-url>jdbc:oracle:thin:@localhost:1521/xepdb1</connection-url>
+    <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+    <user-name>dbuser</user-name>
+    <password>dbpass</password>
+</datasource>
