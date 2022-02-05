@@ -1,8 +1,5 @@
-package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.factory;
+package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao;
 
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleDeptDAO;
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleEmpDAO;
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleSalgradeDAO;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.interfaces.DAOForCRUD;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Dept;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Emp;

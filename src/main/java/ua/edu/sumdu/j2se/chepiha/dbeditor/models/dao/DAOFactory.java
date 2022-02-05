@@ -1,4 +1,4 @@
-package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.factory;
+package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao;
 
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.interfaces.DAOForCRUD;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Dept;

@@ -1,6 +1,5 @@
 package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao;
 
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.factory.OracleDAOFactory;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.interfaces.DAOForCRUD;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Salgrade;
 
@@ -49,6 +48,7 @@ public class OracleSalgradeDAO implements DAOForCRUD<Salgrade> {
         }
     }
 
+    @Override
     public Salgrade getOne(float salary){
         String sql = "select * from salgrade where ? between minsal and hisal";
         Salgrade salgrade = new Salgrade();

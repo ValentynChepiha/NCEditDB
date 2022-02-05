@@ -1,6 +1,8 @@
 package ua.edu.sumdu.j2se.chepiha.dbeditor.controllers;
 
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.ModelEditor;
+import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.DAOFactory;
+import ua.edu.sumdu.j2se.chepiha.dbeditor.models.types.DBTypes;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.views.ViewEditor;
 
 public class ControllerEditor {
@@ -9,7 +11,9 @@ public class ControllerEditor {
     ViewEditor view;
 
     public ControllerEditor() {
-        model = new ModelEditor();
+        DAOFactory daoFactory = DAOFactory.getDAOFactory(DBTypes.ORACLE);
+
+        model = new ModelEditor(daoFactory);
         view = new ViewEditor();
     }
 

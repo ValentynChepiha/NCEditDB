@@ -1,8 +1,7 @@
 package ua.edu.sumdu.j2se.chepiha.dbeditor.models;
 
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleDeptDAO;
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleEmpDAO;
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.OracleSalgradeDAO;
+import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.DAOFactory;
+import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.interfaces.DAOForCRUD;
 
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Dept;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Emp;
@@ -13,19 +12,19 @@ import java.util.List;
 
 public class ModelEditor {
 
-    OracleDeptDAO modelDept;
-    OracleEmpDAO modelEmp;
-    OracleSalgradeDAO modelSalgrade;
+    DAOForCRUD<Dept> modelDept;
+    DAOForCRUD<Emp> modelEmp;
+    DAOForCRUD<Salgrade> modelSalgrade;
 
     Emp emp = new Emp();
     Emp newEmp = null;
     Salgrade salgrade = new Salgrade();
     Dept dept = new Dept();
 
-    public ModelEditor() {
-        modelDept = new OracleDeptDAO();
-        modelEmp = new OracleEmpDAO();
-        modelSalgrade = new OracleSalgradeDAO();
+    public ModelEditor(DAOFactory daoFactory) {
+        modelDept = daoFactory.getDeptDAO();
+        modelEmp = daoFactory.getEmpDAO();
+        modelSalgrade = daoFactory.getSalgradeDAO();
     }
 
     public void getEmployee(int id){
@@ -47,11 +46,12 @@ public class ModelEditor {
     }
 
     public int[] getAllMgr(){
-        List<Integer> listAllEmployee = new ArrayList<>();
-        modelEmp.getAllMgr(listAllEmployee);
+        List<Emp> listAllEmployee = new ArrayList<>();
+        modelEmp.getAll(listAllEmployee);
         return listAllEmployee
                 .stream()
-                .mapToInt(Integer::intValue)
+                .mapToInt(Emp::getMgr)
+                .distinct()
                 .filter(index -> index>0)
                 .sorted()
                 .toArray();

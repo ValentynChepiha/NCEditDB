@@ -1,6 +1,5 @@
 package ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao;
 
-import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.factory.OracleDAOFactory;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.dao.interfaces.DAOForCRUD;
 import ua.edu.sumdu.j2se.chepiha.dbeditor.models.entities.Emp;
 
@@ -86,6 +85,12 @@ public class OracleEmpDAO implements DAOForCRUD<Emp> {
             throwables.printStackTrace();
         }
         return emp;
+    }
+
+    @Override
+    public Emp getOne(float salary) {
+        // nothing
+        return null;
     }
 
     @Override
